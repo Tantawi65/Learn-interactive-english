@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mystery Room - Learn English!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- INTRO SCREEN -->
+    <div id="intro-screen" class="screen active">
+        <div class="glass-panel intro-panel">
+            <div class="intro-decoration">🔮✨</div>
+            <h1 class="title-bounce">The Mystery Room</h1>
+            <p class="mission-text">
+                Welcome to a world of magical discovery! I believe learning a new language should be an adventure, not just memorization. 
+                Explore the room, interact with objects, and uncover English words naturally to escape!
+                Find the blue book to get out of the room
+            </p>
+            
+            <div class="how-to-play">
+                <div class="instruction-card">
+                    <div class="icon glow-icon">👆</div>
+                    <p><strong>Click</strong> objects to hear their name.</p>
+                </div>
+                <div class="instruction-card">
+                    <div class="icon glow-icon">🖐️</div>
+                    <p><strong>Drag & Drop</strong> items to solve puzzles.</p>
+                </div>
+                <div class="instruction-card">
+                    <div class="icon glow-icon">🧩</div>
+                    <p><strong>Match Words</strong> to find the exit!</p>
+                </div>
+            </div>
+
+            <button id="start-btn" class="glow-on-hover pulse-btn">Start Adventure 🚪</button>
+        </div>
+    </div>
+
+    <!-- MAIN GAME SCREEN -->
+    <div id="game-screen" class="screen hidden">
+        
+        <!-- Top HUD for Vocabulary -->
+        <div id="vocab-display">
+            <span id="vocab-word">Click an object!</span>
+        </div>
+
+        <!-- The Room -->
+        <div id="room">
+            <!-- Game Objects. Using emojis as CSS art placeholders -->
+            <div id="door" class="interactive target" data-word="DOOR" title="A locked door">🚪</div>
+            <div id="bookshelf" class="interactive" data-word="BOOKSHELF" title="A wooden bookshelf">📚</div>
+            <div id="chest" class="interactive target" data-word="CHEST" title="A locked chest">🧰</div>
+            <div id="window" class="interactive" data-word="WINDOW" title="A dark window">🪟</div>
+            
+            <!-- Draggable elements in the room -->
+            <div id="rug" class="interactive draggable-in-room" data-word="RUG" draggable="true" title="A soft rug">🧶</div>
+            <div id="hidden-key" class="collectable hidden" data-word="KEY" data-id="key" draggable="true">🔑</div>
+        </div>
+
+        <!-- Inventory Bar -->
+        <div id="inventory-bar">
+            <span>Inventory:</span>
+            <div id="inventory-slots">
+                <!-- Items drop in here -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SPELLING MINI-GAME MODAL -->
+    <div id="minigame-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="minigame-title">Spell the Word to Unlock!</h2>
+            <div id="scrambled-letters"></div>
+            <div id="answer-slots"></div>
+            <p id="minigame-feedback"></p>
+            <button id="reset-minigame-btn">Reset Word</button>
+        </div>
+    </div>
+
+    <!-- OUTRO / WIN SCREEN -->
+    <div id="win-screen" class="screen hidden">
+        <div class="glass-panel text-center">
+            <h1>🎉 You Escaped! 🎉</h1>
+            <p>Amazing job! You used your English skills to unlock the mysteries of the room.</p>
+            <h3>Words you learned today:</h3>
+            <ul id="learned-words-list" class="win-list">
+                <li>DOOR</li>
+                <li>CHEST</li>
+                <li>KEY</li>
+                <li>BOOK</li>
+            </ul>
+            <button onclick="location.reload()" class="glow-on-hover">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
